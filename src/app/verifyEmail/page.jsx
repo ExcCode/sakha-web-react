@@ -1,66 +1,36 @@
 "use client";
 import { Button } from "antd";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import OTPInput from "react-otp-input";
 import Header from "../../../components/Header";
+import CustomOtpInput from "../../../components/CustomOtpInput";
 
 const VerifyEmail = () => {
-  const [otp, setOtp] = useState([]);
-  const [timeSendCode , setTimeSendCode] = useState(59);
+  const [timeSendCode, setTimeSendCode] = useState(59);
   const [timerActive, setTimerActive] = useState(true);
 
-  
-const handleSendNewCodeClick = () => {
-  setTimerActive(true);
-};
+  const handleSendNewCodeClick = () => {
+    setTimerActive(true);
+  };
 
   useEffect(() => {
-   if(timerActive){
-    const timer = setInterval(() => {
-      
-      setTimeSendCode((timeSendCode) =>{
-        if(timeSendCode === 0) 
-      {
-        setTimerActive(false)
-        return 59; 
-      }
-        else return timeSendCode-1;
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-   }
+    if (timerActive) {
+      const timer = setInterval(() => {
+        setTimeSendCode((timeSendCode) => {
+          if (timeSendCode === 0) {
+            setTimerActive(false);
+            return 59;
+          } else return timeSendCode - 1;
+        });
+      }, 1000);
+      return () => clearInterval(timer);
+    }
   }, [timerActive]);
 
-
-  
-  
-let sendNewCodeClass = 'text-[#828282]';
-if (!timerActive) {
-  sendNewCodeClass = 'text-[#2F80ED]';
-}
-  
-  const handleChange = (otp) => {
-    setOtp(otp);
-  };
-
-  const renderInput = (props, index) => {
-    let bgColor = "#FFFFFF";
-
-    if (otp[index]) {
-      bgColor = "#EFF4EB";
-    }
-    return (
-      <input
-        {...props}
-        style={{
-          ...props.style,
-          background: bgColor,
-        }}
-      />
-    );
-  };
+  let sendNewCodeClass = "text-[#828282]";
+  if (!timerActive) {
+    sendNewCodeClass = "text-[#2F80ED]";
+  }
 
   return (
     <div className="flex min-h-screen flex-col   p-[16px] bg-[#cccccc24] gap-[40px]">
@@ -79,32 +49,12 @@ if (!timerActive) {
         </div>
 
         <div className="flex flex-col gap-[16px]">
-          <OTPInput
-            containerStyle={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: "10px",
-            }}
-            inputStyle={{
-              width: "100%",
-              height: "48px",
-              borderRadius: "8px",
-              padding: "14px 16px",
-            }}
-            value={otp}
-            onChange={handleChange}
-            numInputs={4}
-            placeholder={["-", "-", "-", "-"]}
-            renderInput={renderInput}
-            // renderInput={(props) => <input {...props} />}
-            className="my-opt-input"
-          />
+          <CustomOtpInput />
           <div className="flex flex-col text-[12px] font-[900] text-center">
-            {/* <span className=" text-[#000000]">00:59 sec</span>
-            <span className="text-[#828282]">Send New Code!</span> */}
-            
-    <span className="text-[#000000]">{`00:${timeSendCode} sec`}</span>
-    <span className={sendNewCodeClass} onClick={handleSendNewCodeClick}>Send New Code!</span>
+            <span className="text-[#000000]">{`00:${timeSendCode} sec`}</span>
+            <span className={sendNewCodeClass} onClick={handleSendNewCodeClick}>
+              Send New Code!
+            </span>
           </div>
           <div className="flex flex-col gap-[8px]">
             <Button className="text-[#fff] bg-[#669640] text-[900] text-[16px] rounded-[8px] px-[16px] py-[14px] flex justify-center items-center h-[48px]">
