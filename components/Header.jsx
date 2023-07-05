@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({text}) => {
+const Header = ({text , title}) => {
   return (
     <div className="flex items-center gap-[10px]">
         <div className="flex bg-[#fff] header justify-center items-center w-10 h-[40px] rounded-[8px] p-[8px]">
@@ -25,7 +25,12 @@ const Header = ({text}) => {
 
       
     </div>
-      <h1 className="text-[#0B0B0B] font-[900] text-[24px]">{text}</h1>
+    <div className="flex flex-col gap-[8px]">
+      <h1 className="text-[#0B0B0B] font-[900] text-[24px]">{text}
+      </h1>
+    <span className="text-[#0B0B0B] font-[500] text-[18px]">{title}</span>
+    </div>
+     
     </div>
   
   );
