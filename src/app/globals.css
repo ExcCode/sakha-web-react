@@ -26,7 +26,7 @@
     rgb(var(--background-start-rgb));
 } */
 
-:where(.css-dev-only-do-not-override-14wwjjs).ant-checkbox-checked .ant-checkbox-inner{
+:where(.css-dev-only-do-not-override-14wwjjs).ant-checkbox-checked .ant-checkbox-inner ,:where(.css-dev-only-do-not-override-14wwjjs).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
   background-color: #0062A0 !important;
   border:1px solid #0062A0;
   font-size: 12px;
@@ -36,3 +36,48 @@
 .header{
   width: 40px !important;
 }
+
+.my-opt-input input::placeholder{
+  color: red;
+}
+
+:where(.css-dev-only-do-not-override-14wwjjs).ant-avatar .ant-avatar-string {
+  width: 45px;
+  height: 45px;
+}
+
+:where(.css-dev-only-do-not-override-14wwjjs).ant-select:not(.ant-select-customize-input) .ant-select-selector{
+  color:#828282;
+  border:none
+}
+:where(.css-dev-only-do-not-override-14wwjjs).ant-checkbox .ant-checkbox-inner,:where(.css-dev-only-do-not-override-14wwjjs).ant-radio-wrapper .ant-radio-inner {
+  background-color: #DBDBDB;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+}
+
+/* .PhoneInputCountry{
+  background-color: #EDEDED;
+  width: 50px;
+  height: 32px;
+  border-radius: 4px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+} */
+/* 
+:where(.css-dev-only-do-not-override-14wwjjs).ant-radio-wrapper .ant-radio-inner::after {
+  content:'✔' !important;
+  width: 12px;
+  height: 10px;
+  background-color: #fff;
+
+}
+.ant-radio-inner,
+.ant-radio-inner:after {
+  border-radius: 0 !important;
+}
+.ant-radio-inner:after {
+  border: none !important;
+} */

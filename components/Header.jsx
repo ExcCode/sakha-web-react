@@ -1,8 +1,9 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({text}) => {
   return (
-    <div className="flex bg-[#fff] header justify-center items-center w-10 h-[40px] rounded-[8px] p-[8px]">
+    <div className="flex items-center gap-[10px]">
+        <div className="flex bg-[#fff] header justify-center items-center w-10 h-[40px] rounded-[8px] p-[8px]">
       
       <svg
         width="18"
@@ -21,7 +22,12 @@ const Header = () => {
           fill="#4D4D4D"
         />
       </svg>
+
+      
     </div>
+      <h1 className="text-[#0B0B0B] font-[900] text-[24px]">{text}</h1>
+    </div>
+  
   );
 };
 
